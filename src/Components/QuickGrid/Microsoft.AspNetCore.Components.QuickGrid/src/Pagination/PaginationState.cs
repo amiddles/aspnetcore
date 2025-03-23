@@ -55,8 +55,8 @@ public class PaginationState
         return CurrentPageItemsChanged.InvokeCallbacksAsync(this);
     }
 
-    // Can be internal because this only needs to be called by QuickGrid itself, not any custom pagination UI components.
-    internal Task SetTotalItemCountAsync(int totalItemCount)
+    // Should be public because some custom implimentations can bennefit from using this component outside of the quickgrid.
+    public Task SetTotalItemCountAsync(int totalItemCount)
     {
         if (totalItemCount == TotalItemCount)
         {
